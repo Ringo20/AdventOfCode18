@@ -1,12 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 
-namespace AdventOfCode18
+namespace AdventOfCode
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RunDays();
+
         }
+
+        
+        static void RunDays()
+        {
+            //Day1.Execute();
+            Day2.Execute();
+        }
+
+
+       
+
+
     }
 }
+
+
