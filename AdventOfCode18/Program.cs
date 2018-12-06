@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventOfCode18;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,8 @@ namespace AdventOfCode
         static void RunDays()
         {
             //Day1.Execute();
-            Day2.Execute();
+            //Day2.Execute();
+            Day3.Execute();
         }
 
 

@@ -13,7 +13,11 @@ namespace AdventOfCode
             var input = GetInputList("https://adventofcode.com/2018/day/2/input");
             RunTestsDay2();
             var d2p1 = Day2_Part1(input);
-            Console.WriteLine(String.Format("Parte 1: {0}", d2p1));
+            Console.WriteLine(String.Format("Risultato parte 1: {0}", d2p1));
+            var d2p2 = Day2_Part2(input);
+            Console.WriteLine(String.Format("Risultato parte 1: {0}", d2p2));
+            
+
             Console.Read();
         }
 
@@ -34,10 +38,42 @@ namespace AdventOfCode
             return res;
         }
 
+        static private string Day2_Part2(List<string> Input)
+        {
+            var distance = 0;
+            var commons = "";
+            foreach (var str in Input)
+            {
+                foreach (var str_lev2 in Input)
+                {
+                    if(str != str_lev2)
+                    {
+                        commons = "";
+                        distance = 0;
+                        for (int i = 0; i < str.Length; i++)
+                        {
+                            if (str[i] != str_lev2[i])
+                            {
+                                distance += 1;
+                            }
+                            else
+                            {
+                                commons += str[i];
+                            }
 
+                            if (distance > 1) break;
+                        }
+                        if (distance == 1)
+                            return commons;
+                    }
+                }
+            }
+            return commons;
+        }
         static void RunTestsDay2()
         {
             Day2_Part1_Test();
+            Day2_Part2_Test();
         }
 
 
@@ -51,6 +87,16 @@ namespace AdventOfCode
             };
 
             tests.ForEach(test => AssertEqual(Day2_Part1(test.Item1), test.Item2));
+
+        }
+
+        static void Day2_Part2_Test()
+        {
+            var tests = new List<Tuple<List<string>, string>>()
+            {
+                new Tuple<List<string>, string>(new List<string>() { "abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz" }, "fgij")
+            };
+            tests.ForEach(test => AssertEqual(Day2_Part2(test.Item1), test.Item2));
 
         }
     }
