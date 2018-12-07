@@ -46,11 +46,10 @@ namespace AdventOfCode18
             var wakesUpAt = 0;
             var minutesSleptCount = 0;
             var whichMinutes = new int[60];
-
-            var orderedLog = logs.OrderBy(x => Convert.ToDateTime(x.Substring(1, (x.IndexOf("]") - 1)))).ToList();
+            
             var guardReport = new List<GuardReport>();
             GuardReport guard = null;
-            foreach (var log in orderedLog)
+            foreach (var log in logs.OrderBy(x => Convert.ToDateTime(x.Substring(1, (x.IndexOf("]") - 1)))).ToList())
             {
                 if (log.Contains("#"))
                 {

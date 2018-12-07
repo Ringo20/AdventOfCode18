@@ -23,10 +23,6 @@ namespace AdventOfCode18
 
             foreach (var s in input)
             {
-                top = 0;
-                left = 0;
-                width = 0;
-                height = 0;
                 ind = Convert.ToInt32(s.Substring(s.IndexOf("#") + 1, s.IndexOf(" ")));
                 left = Convert.ToInt32(s.Substring(s.IndexOf("@") + 2, (s.IndexOf(",") - (s.IndexOf("@") + 2))));
                 top = Convert.ToInt32(s.Substring(s.IndexOf(",") + 1, (s.IndexOf(":") - (s.IndexOf(",") + 1))));
@@ -68,11 +64,7 @@ namespace AdventOfCode18
             var indexList = new List<int>();
             foreach (var s in input)
             {
-
-                top = 0;
-                left = 0;
-                width = 0;
-                height = 0;
+                
                 ind = Convert.ToInt32(s.Substring(s.IndexOf("#") + 1, s.IndexOf(" ")));
                 left = Convert.ToInt32(s.Substring(s.IndexOf("@") + 2, (s.IndexOf(",") - (s.IndexOf("@") + 2))));
                 top = Convert.ToInt32(s.Substring(s.IndexOf(",") + 1, (s.IndexOf(":") - (s.IndexOf(",") + 1))));
