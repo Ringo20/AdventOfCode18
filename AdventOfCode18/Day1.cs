@@ -14,9 +14,8 @@ namespace AdventOfCode
             RunTestsDay1();
             var d1p1 = Day1_Part1(input);
             var d1p2 = Day1_Part2(input);
-            Console.WriteLine(String.Format("Risultato parte 1: {0}", d1p1));
-            Console.WriteLine(String.Format("Risultato Parte 2: {0}", d1p2));
-            Console.Read();
+            Console.WriteLine(String.Format("Risultato day 1 parte 1: {0}", d1p1));
+            Console.WriteLine(String.Format("Risultato day 1 Parte 2: {0}", d1p2));
         }
 
 

@@ -12,15 +12,18 @@ namespace AdventOfCode
         static void Main(string[] args)
         {
             RunDays();
+            Console.ReadLine();
 
         }
 
         
         static void RunDays()
         {
-            //Day1.Execute();
-            //Day2.Execute();
+            Day1.Execute();
+            Day2.Execute();
             Day3.Execute();
+            Day4.Execute();
+            
         }
 
 

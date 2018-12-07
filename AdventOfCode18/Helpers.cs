@@ -10,7 +10,7 @@ namespace AdventOfCode
         {
             var res = new List<string>();
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Headers.Add("Cookie", "session=53616c7465645f5ffd9d7bf36f8bcd3ab129f985625f5f49f9bc3f8bedbbc66425ba88e00268a62e1431c23b1c99b880");
+            request.Headers.Add("Cookie", "session=53616c7465645f5f8418a80d010824dbe4714002eee405ff0aee2bf7e85c43a69ffafa3ae28ae7ab7a6926d971403b42s");
             request.Method = "GET";
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 

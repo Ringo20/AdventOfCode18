@@ -13,11 +13,10 @@ namespace AdventOfCode18
             var input = GetInputList("https://adventofcode.com/2018/day/3/input");
             RunTests();
             var res_part1 = Part1(input);
-            Console.WriteLine("res: " + res_part1);
+            Console.WriteLine("d3p1 res: " + res_part1);
 
             var res_part2 = Part2(input);
-            Console.WriteLine("res: " + res_part2);
-            Console.Read();
+            Console.WriteLine("d3p2 res: " + res_part2);
 
         }
 
@@ -67,7 +66,6 @@ namespace AdventOfCode18
                 left = 0;
                 width = 0;
                 height = 0;
-                Console.WriteLine(s);
                 ind = Convert.ToInt32(s.Substring(s.IndexOf("#") + 1, s.IndexOf(" ")));
                 left = Convert.ToInt32(s.Substring(s.IndexOf("@") + 2, (s.IndexOf(",") - (s.IndexOf("@") + 2))));
                 top = Convert.ToInt32(s.Substring(s.IndexOf(",")+1, (s.IndexOf(":")- (s.IndexOf(",") + 1))));
@@ -114,7 +112,6 @@ namespace AdventOfCode18
                 left = 0;
                 width = 0;
                 height = 0;
-                Console.WriteLine(s);
                 ind = Convert.ToInt32(s.Substring(s.IndexOf("#") + 1, s.IndexOf(" ")));
                 left = Convert.ToInt32(s.Substring(s.IndexOf("@") + 2, (s.IndexOf(",") - (s.IndexOf("@") + 2))));
                 top = Convert.ToInt32(s.Substring(s.IndexOf(",") + 1, (s.IndexOf(":") - (s.IndexOf(",") + 1))));
@@ -142,11 +139,9 @@ namespace AdventOfCode18
                 }
             }
 
-            excluded = excluded.Distinct().ToList();
-
-
-            var pippo = indexList.FindAll (x => !excluded.Contains(x));
-            return 3;
+            
+            cnt = indexList.Find(x => !excluded.Contains(x));
+            return cnt;
         }
     }
 }
