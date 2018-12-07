@@ -8,92 +8,11 @@ namespace AdventOfCode18
 {
     static class Day4
     {
-        public static void Execute()
-        {
-
-            var input = GetInputList("https://adventofcode.com/2018/day/4/input");
-            RunTests();
-            var p1= Part1(input);
-            Console.WriteLine(string.Format("d4Part1 res {0}", p1));
-            var p2 = Part2(input);
-            Console.WriteLine(string.Format("d4Part1 res {0}", p2));
-
-        }
-
-        private static void RunTests()
-        {
-            Test_Part1();
-            Test_Part2();
-        }
-
-        private static void Test_Part1()
-        {
-            var logs = new List<string>()
-            {
-                "[1518 - 11 - 01 00:00] Guard #10 begins shift",
-                "[1518 - 11 - 01 00:05] falls asleep",
-                "[1518 - 11 - 01 00:25] wakes up",
-                "[1518 - 11 - 01 00:30] falls asleep",
-                "[1518 - 11 - 01 00:55] wakes up",
-                "[1518 - 11 - 01 23:58] Guard #99 begins shift",
-                "[1518 - 11 - 02 00:40] falls asleep",
-                "[1518 - 11 - 02 00:50] wakes up",
-                "[1518 - 11 - 03 00:05] Guard #10 begins shift",
-                "[1518 - 11 - 03 00:24] falls asleep",
-                "[1518 - 11 - 03 00:29] wakes up",
-                "[1518 - 11 - 04 00:02] Guard #99 begins shift",
-                "[1518 - 11 - 04 00:36] falls asleep",
-                "[1518 - 11 - 04 00:46] wakes up",
-                "[1518 - 11 - 05 00:03] Guard #99 begins shift",
-                "[1518 - 11 - 05 00:45] falls asleep",
-                "[1518 - 11 - 05 00:55] wakes up"
-            };
-
-
-            var tests = new List<Tuple<List<string>, int>>
-            {
-                new Tuple<List<string>, int>(logs, 240)
-            };
-
-            tests.ForEach(test => AssertEqual(Part1(test.Item1), test.Item2));
-        }
-
-        private static void Test_Part2()
-        {
-            var logs = new List<string>()
-            {
-                "[1518 - 11 - 01 00:00] Guard #10 begins shift",
-                "[1518 - 11 - 01 00:05] falls asleep",
-                "[1518 - 11 - 01 00:25] wakes up",
-                "[1518 - 11 - 01 00:30] falls asleep",
-                "[1518 - 11 - 01 00:55] wakes up",
-                "[1518 - 11 - 01 23:58] Guard #99 begins shift",
-                "[1518 - 11 - 02 00:40] falls asleep",
-                "[1518 - 11 - 02 00:50] wakes up",
-                "[1518 - 11 - 03 00:05] Guard #10 begins shift",
-                "[1518 - 11 - 03 00:24] falls asleep",
-                "[1518 - 11 - 03 00:29] wakes up",
-                "[1518 - 11 - 04 00:02] Guard #99 begins shift",
-                "[1518 - 11 - 04 00:36] falls asleep",
-                "[1518 - 11 - 04 00:46] wakes up",
-                "[1518 - 11 - 05 00:03] Guard #99 begins shift",
-                "[1518 - 11 - 05 00:45] falls asleep",
-                "[1518 - 11 - 05 00:55] wakes up"
-            };
-
-
-            var tests = new List<Tuple<List<string>, int>>
-            {
-                new Tuple<List<string>, int>(logs, 4455)
-            };
-
-            tests.ForEach(test => AssertEqual(Part2(test.Item1), test.Item2));
-        }
 
         private static int Part1(List<string> input)
         {
             var guardReport = BuildGuardReportFromLogs(input);
-            
+
             var guard = guardReport.Where(x => x.TotalMinutesSlept == guardReport.Max(y => y.TotalMinutesSlept)).FirstOrDefault();
             int minute = Array.IndexOf(guard.MinuteSlept, guard.MinuteSlept.Max());
             return guard.GuardID * minute;
@@ -192,6 +111,88 @@ namespace AdventOfCode18
                 get; set;
             }
         }
+        public static void Execute()
+        {
+
+            var input = GetInputList("https://adventofcode.com/2018/day/4/input");
+            RunTests();
+            var p1= Part1(input);
+            Console.WriteLine(string.Format("d4Part1 res {0}", p1));
+            var p2 = Part2(input);
+            Console.WriteLine(string.Format("d4Part1 res {0}", p2));
+
+        }
+
+        private static void RunTests()
+        {
+            Test_Part1();
+            Test_Part2();
+        }
+
+        private static void Test_Part1()
+        {
+            var logs = new List<string>()
+            {
+                "[1518 - 11 - 01 00:00] Guard #10 begins shift",
+                "[1518 - 11 - 01 00:05] falls asleep",
+                "[1518 - 11 - 01 00:25] wakes up",
+                "[1518 - 11 - 01 00:30] falls asleep",
+                "[1518 - 11 - 01 00:55] wakes up",
+                "[1518 - 11 - 01 23:58] Guard #99 begins shift",
+                "[1518 - 11 - 02 00:40] falls asleep",
+                "[1518 - 11 - 02 00:50] wakes up",
+                "[1518 - 11 - 03 00:05] Guard #10 begins shift",
+                "[1518 - 11 - 03 00:24] falls asleep",
+                "[1518 - 11 - 03 00:29] wakes up",
+                "[1518 - 11 - 04 00:02] Guard #99 begins shift",
+                "[1518 - 11 - 04 00:36] falls asleep",
+                "[1518 - 11 - 04 00:46] wakes up",
+                "[1518 - 11 - 05 00:03] Guard #99 begins shift",
+                "[1518 - 11 - 05 00:45] falls asleep",
+                "[1518 - 11 - 05 00:55] wakes up"
+            };
+
+
+            var tests = new List<Tuple<List<string>, int>>
+            {
+                new Tuple<List<string>, int>(logs, 240)
+            };
+
+            tests.ForEach(test => AssertEqual(Part1(test.Item1), test.Item2));
+        }
+
+        private static void Test_Part2()
+        {
+            var logs = new List<string>()
+            {
+                "[1518 - 11 - 01 00:00] Guard #10 begins shift",
+                "[1518 - 11 - 01 00:05] falls asleep",
+                "[1518 - 11 - 01 00:25] wakes up",
+                "[1518 - 11 - 01 00:30] falls asleep",
+                "[1518 - 11 - 01 00:55] wakes up",
+                "[1518 - 11 - 01 23:58] Guard #99 begins shift",
+                "[1518 - 11 - 02 00:40] falls asleep",
+                "[1518 - 11 - 02 00:50] wakes up",
+                "[1518 - 11 - 03 00:05] Guard #10 begins shift",
+                "[1518 - 11 - 03 00:24] falls asleep",
+                "[1518 - 11 - 03 00:29] wakes up",
+                "[1518 - 11 - 04 00:02] Guard #99 begins shift",
+                "[1518 - 11 - 04 00:36] falls asleep",
+                "[1518 - 11 - 04 00:46] wakes up",
+                "[1518 - 11 - 05 00:03] Guard #99 begins shift",
+                "[1518 - 11 - 05 00:45] falls asleep",
+                "[1518 - 11 - 05 00:55] wakes up"
+            };
+
+
+            var tests = new List<Tuple<List<string>, int>>
+            {
+                new Tuple<List<string>, int>(logs, 4455)
+            };
+
+            tests.ForEach(test => AssertEqual(Part2(test.Item1), test.Item2));
+        }
+
     }
 }
 

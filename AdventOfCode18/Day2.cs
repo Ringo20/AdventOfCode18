@@ -8,16 +8,7 @@ namespace AdventOfCode
 {
     public static class Day2
     {
-        static public void Execute()
-        {
-            var input = GetInputList("https://adventofcode.com/2018/day/2/input");
-            RunTestsDay2();
-            var d2p1 = Day2_Part1(input);
-            Console.WriteLine(String.Format("Risultato day2 parte 1: {0}", d2p1));
-            var d2p2 = Day2_Part2(input);
-            Console.WriteLine(String.Format("Risultato day2 parte 2: {0}", d2p2));
-            
-        }
+        
 
         static private int Day2_Part1(List<string> Input)
         {
@@ -68,6 +59,18 @@ namespace AdventOfCode
             }
             return commons;
         }
+
+        static public void Execute()
+        {
+            var input = GetInputList("https://adventofcode.com/2018/day/2/input");
+            RunTestsDay2();
+            var d2p1 = Day2_Part1(input);
+            Console.WriteLine(String.Format("Risultato day2 parte 1: {0}", d2p1));
+            var d2p2 = Day2_Part2(input);
+            Console.WriteLine(String.Format("Risultato day2 parte 2: {0}", d2p2));
+
+        }
+
         static void RunTestsDay2()
         {
             Day2_Part1_Test();

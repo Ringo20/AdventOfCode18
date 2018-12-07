@@ -8,45 +8,6 @@ namespace AdventOfCode18
 {
     public static class Day3
     {
-        public static void Execute()
-        {
-            var input = GetInputList("https://adventofcode.com/2018/day/3/input");
-            RunTests();
-            var res_part1 = Part1(input);
-            Console.WriteLine("d3p1 res: " + res_part1);
-
-            var res_part2 = Part2(input);
-            Console.WriteLine("d3p2 res: " + res_part2);
-
-        }
-
-        private static void RunTests()
-        {
-            Test_Part1();
-            Test_Part2();
-        }
-
-        private static void Test_Part1()
-        {
-
-            var tests = new List<Tuple<List<string>, int>>
-            {
-                new Tuple<List<string>, int>(new List<string>() { "#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2" }, 4)
-            };
-
-            tests.ForEach(test => AssertEqual(Part1(test.Item1), test.Item2));
-        }
-
-        private static void Test_Part2()
-        {
-
-            var tests = new List<Tuple<List<string>, int>>
-            {
-                new Tuple<List<string>, int>(new List<string>() { "#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2" }, 3)
-            };
-
-            tests.ForEach(test => AssertEqual(Part2(test.Item1), test.Item2));
-        }
 
         private static int Part1(List<string> input)
         {
@@ -59,7 +20,7 @@ namespace AdventOfCode18
             var width = 0;
             var height = 0;
             var matrix = new int[matrixW, matrixH];
-            
+
             foreach (var s in input)
             {
                 top = 0;
@@ -68,8 +29,8 @@ namespace AdventOfCode18
                 height = 0;
                 ind = Convert.ToInt32(s.Substring(s.IndexOf("#") + 1, s.IndexOf(" ")));
                 left = Convert.ToInt32(s.Substring(s.IndexOf("@") + 2, (s.IndexOf(",") - (s.IndexOf("@") + 2))));
-                top = Convert.ToInt32(s.Substring(s.IndexOf(",")+1, (s.IndexOf(":")- (s.IndexOf(",") + 1))));
-                width = Convert.ToInt32(s.Substring(s.IndexOf(":")+2, s.IndexOf("x")- (s.IndexOf(":") + 2)));
+                top = Convert.ToInt32(s.Substring(s.IndexOf(",") + 1, (s.IndexOf(":") - (s.IndexOf(",") + 1))));
+                width = Convert.ToInt32(s.Substring(s.IndexOf(":") + 2, s.IndexOf("x") - (s.IndexOf(":") + 2)));
                 height = Convert.ToInt32(s.Substring(s.IndexOf("x") + 1));
                 for (int i = 0; i < width; i++)
                 {
@@ -80,7 +41,7 @@ namespace AdventOfCode18
                             matrix[left + i, top + j] = ind;
 
                         }
-                        else if(matrix[left + i, top + j] != -1)
+                        else if (matrix[left + i, top + j] != -1)
                         {
                             matrix[left + i, top + j] = -1;
                             cnt++;
@@ -127,7 +88,7 @@ namespace AdventOfCode18
                             matrix[left + i, top + j] = ind;
 
                         }
-                        else 
+                        else
                         {
                             if (matrix[left + i, top + j] != -1)
                             {
@@ -139,9 +100,50 @@ namespace AdventOfCode18
                 }
             }
 
-            
+
             cnt = indexList.Find(x => !excluded.Contains(x));
             return cnt;
         }
+
+        public static void Execute()
+        {
+            var input = GetInputList("https://adventofcode.com/2018/day/3/input");
+            RunTests();
+            var res_part1 = Part1(input);
+            Console.WriteLine("d3p1 res: " + res_part1);
+
+            var res_part2 = Part2(input);
+            Console.WriteLine("d3p2 res: " + res_part2);
+
+        }
+
+        private static void RunTests()
+        {
+            Test_Part1();
+            Test_Part2();
+        }
+
+        private static void Test_Part1()
+        {
+
+            var tests = new List<Tuple<List<string>, int>>
+            {
+                new Tuple<List<string>, int>(new List<string>() { "#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2" }, 4)
+            };
+
+            tests.ForEach(test => AssertEqual(Part1(test.Item1), test.Item2));
+        }
+
+        private static void Test_Part2()
+        {
+
+            var tests = new List<Tuple<List<string>, int>>
+            {
+                new Tuple<List<string>, int>(new List<string>() { "#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2" }, 3)
+            };
+
+            tests.ForEach(test => AssertEqual(Part2(test.Item1), test.Item2));
+        }
+
     }
 }
