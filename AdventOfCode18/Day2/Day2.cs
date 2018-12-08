@@ -62,7 +62,7 @@ namespace AdventOfCode
 
         static public void Execute()
         {
-            var input = GetInputList("https://adventofcode.com/2018/day/2/input");
+            var input = GetInputList(2);
             RunTestsDay2();
             var d2p1 = Day2_Part1(input);
             Console.WriteLine(String.Format("Risultato day2 parte 1: {0}", d2p1));

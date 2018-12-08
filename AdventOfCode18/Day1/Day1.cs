@@ -47,7 +47,7 @@ namespace AdventOfCode
         static public void Execute()
         {
 
-            var input = GetInputList("https://adventofcode.com/2018/day/1/input");
+            var input = GetInputList(1);
             RunTestsDay1();
             var d1p1 = Day1_Part1(input);
             var d1p2 = Day1_Part2(input);

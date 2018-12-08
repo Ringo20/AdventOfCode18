@@ -99,7 +99,7 @@ namespace AdventOfCode18
 
         public static void Execute()
         {
-            var input = GetInputList("https://adventofcode.com/2018/day/3/input");
+            var input = GetInputList(3);
             RunTests();
             var res_part1 = Part1(input);
             Console.WriteLine("d3p1 res: " + res_part1);
